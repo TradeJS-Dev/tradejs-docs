@@ -1,0 +1,7 @@
+node_modules
+.git
+.github
+.docusaurus
+build
+*.log
+.DS_Store

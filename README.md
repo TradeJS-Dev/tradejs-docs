@@ -1,26 +1,38 @@
-# @tradejs/docs
+# tradejs-docs
 
-Docusaurus documentation app for the TradeJS open-source framework.
+Standalone Docusaurus documentation site for the TradeJS framework.
 
-## Run (both locales)
+## Install
 
 ```bash
-yarn workspace @tradejs/docs dev
+npm install
+```
+
+## Run
+
+Build and serve both locales:
+
+```bash
+npm run dev
 ```
 
 Site runs on `http://localhost:3001`.
 
-## Hot reload (single locale)
+## Hot Reload
 
 Docusaurus dev server supports one locale per process.
 
 ```bash
-yarn workspace @tradejs/docs dev:hot:en
-yarn workspace @tradejs/docs dev:hot:ru
+npm run dev:hot:en
+npm run dev:hot:ru
 ```
 
 ## Build
 
 ```bash
-yarn workspace @tradejs/docs build
+npm run build
 ```
+
+## Container Image
+
+Pushes to `main` publish `ghcr.io/tradejs-dev/tradejs-docs`.

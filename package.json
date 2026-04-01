@@ -2,6 +2,15 @@
   "name": "@tradejs/docs",
   "version": "1.0.0",
   "private": true,
+  "description": "Official TradeJS documentation site built with Docusaurus.",
+  "homepage": "https://docs.tradejs.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TradeJS-Dev/tradejs-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TradeJS-Dev/tradejs-docs/issues"
+  },
   "scripts": {
     "docusaurus": "docusaurus",
     "dev": "docusaurus build && docusaurus serve --port 3001",
@@ -52,6 +61,7 @@
   "engines": {
     "node": ">=20.0"
   },
+  "packageManager": "npm@10.8.2",
   "license": "MIT",
   "author": "aleksnick (https://github.com/aleksnick)"
 }
