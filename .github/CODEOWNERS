@@ -1,0 +1,20 @@
+# Default ownership
+* @aleksnick
+
+# Repository automation
+/.github/ @aleksnick
+
+# Documentation content
+/docs/ @aleksnick
+/i18n/ @aleksnick
+/src/ @aleksnick
+/static/ @aleksnick
+
+# Build and config
+/Dockerfile @aleksnick
+/package.json @aleksnick
+/package-lock.json @aleksnick
+/docusaurus.config.ts @aleksnick
+/sidebars.ts @aleksnick
+/tsconfig.json @aleksnick
+/nginx.docs.conf @aleksnick
