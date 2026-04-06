@@ -36,7 +36,7 @@ jobs:
         run: npm run build
 
   publish:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.GHCR_PUBLISH_ENABLED == 'true'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
 

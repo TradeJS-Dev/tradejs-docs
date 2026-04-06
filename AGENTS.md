@@ -25,7 +25,7 @@ Keep the docs standalone, buildable with plain `npm`, and deployable through its
 
 ## Deploy Rules
 
-- Image publishing is gated by repository variable `GHCR_PUBLISH_ENABLED`.
+- Image publishing runs automatically on pushes to `main`.
 - Production deploy is gated by repository variable `PROD_DEPLOY_ENABLED`.
 - If `GITHUB_TOKEN` cannot publish to GHCR in the organization, use repository secrets `GHCR_USERNAME` and `GHCR_TOKEN`.
 - Required secrets are `SSH_HOST`, `SSH_USER`, and `SSH_KEY`.
