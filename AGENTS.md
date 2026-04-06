@@ -26,7 +26,7 @@ Keep the docs standalone, buildable with plain `npm`, and deployable through its
 ## Deploy Rules
 
 - Image publishing runs automatically on pushes to `main`.
-- Production deploy is gated by repository variable `PROD_DEPLOY_ENABLED`.
+- Production deploy runs automatically after image publishing on pushes to `main`.
 - If `GITHUB_TOKEN` cannot publish to GHCR in the organization, use repository secrets `GHCR_USERNAME` and `GHCR_TOKEN`.
 - Required secrets are `SSH_HOST`, `SSH_USER`, and `SSH_KEY`.
 - The workflow should refresh only the `docs` service on the target host unless explicitly changing infra ownership.
@@ -36,3 +36,9 @@ Keep the docs standalone, buildable with plain `npm`, and deployable through its
 - Keep changes focused.
 - Preserve stable public URLs whenever possible.
 - Do not reintroduce monorepo-only commands like `yarn workspace @tradejs/docs ...` into the README or workflow examples.
+
+## Local Clone Policy
+
+- Keep `TradeJS-Dev` repository clones under `~/dev/...`.
+- In this environment, use `~/dev/investing` for `TradeJS` and `~/dev/tradejs-docs` for this repo.
+- Do not use `/tmp` as a working location for local long-lived clones.

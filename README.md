@@ -45,8 +45,6 @@ The repository can also deploy `docs` on the existing production server through 
 
 Required repository configuration:
 
-- variable: `GHCR_PUBLISH_ENABLED=true`
-- variable: `PROD_DEPLOY_ENABLED=true`
 - secrets: `SSH_HOST`, `SSH_USER`, `SSH_KEY`
 
 Optional registry bootstrap secrets when org-level `GITHUB_TOKEN` cannot publish packages:
@@ -54,7 +52,7 @@ Optional registry bootstrap secrets when org-level `GITHUB_TOKEN` cannot publish
 - `GHCR_USERNAME`
 - `GHCR_TOKEN`
 
-When enabled, pushes to `main` publish the image and then run:
+Pushes to `main` publish the image and then run:
 
 ```bash
 docker compose -f ~/docker-compose.prod.yml pull docs
