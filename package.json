@@ -46,6 +46,23 @@
     "@types/react-dom": "^19.0.0",
     "typescript": "~5.6.2"
   },
+  "resolutions": {
+    "@docusaurus/babel": "3.9.2",
+    "@docusaurus/bundler": "3.9.2",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/cssnano-preset": "3.9.2",
+    "@docusaurus/logger": "3.9.2",
+    "@docusaurus/mdx-loader": "3.9.2",
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/plugin-content-docs": "3.9.2",
+    "@docusaurus/theme-common": "3.9.2",
+    "@docusaurus/theme-translations": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "@docusaurus/utils": "3.9.2",
+    "@docusaurus/utils-common": "3.9.2",
+    "@docusaurus/utils-validation": "3.9.2",
+    "webpack": "5.105.4"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
@@ -61,7 +78,7 @@
   "engines": {
     "node": ">=20.0"
   },
-  "packageManager": "npm@10.8.2",
+  "packageManager": "yarn@4.13.0",
   "license": "MIT",
   "author": "aleksnick (https://github.com/aleksnick)"
 }

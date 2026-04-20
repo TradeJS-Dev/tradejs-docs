@@ -67,7 +67,7 @@ The documentation covers:
 - AI configuration: https://docs.tradejs.dev/ai-ml/ai/configuration
 - AI prompt replay: https://docs.tradejs.dev/ai-ml/ai/prompt-replay
 - Prompt governance: https://docs.tradejs.dev/ai-ml/ai/prompt-governance
-- Offline gating evaluation: https://docs.tradejs.dev/ai-ml/ai/offline-gating-eval
+- Historical gating evaluation: https://docs.tradejs.dev/ai-ml/ai/offline-gating-eval
 - ML configuration: https://docs.tradejs.dev/ai-ml/ml/configuration
 - Train latest select: https://docs.tradejs.dev/ai-ml/ml/train-latest-select
 - Infer service: https://docs.tradejs.dev/ai-ml/ml/infer-service

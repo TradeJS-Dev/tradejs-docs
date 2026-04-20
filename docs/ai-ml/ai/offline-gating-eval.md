@@ -1,10 +1,12 @@
 ---
-title: Offline Evaluation for AI Gating
+title: Historical Evaluation for AI Gating
 ---
 
-Before changing AI gating logic, run offline evaluation.
+Before changing AI gating logic, evaluate it on historical trades before live rollout.
 
 If you need the end-to-end workflow behind replayable AI datasets first, start with [Prompt Replay from Backtests](./prompt-replay).
+
+This is historical evaluation, not a provider-free dry run. Unless you pass `--localOnly`, `ai-train` still re-sends prompts to the configured AI provider.
 
 ## Goal
 
@@ -40,7 +42,7 @@ Useful `ai-train` flags:
 Approval rule used by `ai-train`:
 
 - trade is approved only when AI returns the same direction as the original signal and `quality >= minQuality`
-- offline correctness is measured against realized trade outcome (`profit > 0`)
+- historical correctness is measured against realized trade outcome (`profit > 0`)
 
 ## Core Metrics
 

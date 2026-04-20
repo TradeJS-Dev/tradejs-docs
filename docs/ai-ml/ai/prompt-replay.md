@@ -6,6 +6,8 @@ TradeJS can turn AI-enabled backtests into reusable prompt replay datasets.
 
 Instead of treating AI review as a live-only gate, you can capture replayable AI rows during backtests and run the same historical trades through updated prompt logic later.
 
+This replay is historical, not provider-free. By default, `ai-train` sends prompt requests to the configured AI provider again; only `--localOnly` switches replay into a deterministic local mode without provider calls.
+
 ## Why It Matters
 
 - Iterate on prompt behavior without rerunning the full market simulation every time.
@@ -20,7 +22,7 @@ When AI dataset export is enabled in backtests, TradeJS writes per-trade rows wi
 - signal identity, symbol, direction, and timestamp
 - strategy name
 - structured AI payload used to rebuild strategy prompts later
-- realized trade profit for offline scoring
+- realized trade profit for historical scoring
 - optional test metadata for backtest traceability
 
 Rows are written into per-worker chunk files and later merged into one replay dataset.
@@ -48,6 +50,11 @@ Artifacts:
 - `ai-export` merges them into `data/ai/export/ai-dataset-<strategy>-merged-<timestamp>.jsonl`
 - `ai-train` replays rows from the latest merged file by default
 
+Important:
+
+- default replay still calls your configured AI provider
+- `--localOnly` is the provider-free deterministic gate mode
+
 ## What You Can Validate
 
 - prompt changes in strategy `aiAdapter`
@@ -72,4 +79,4 @@ That makes AI gating auditable, repeatable, and easier to discuss with strategy 
 
 - [AI Runtime and Configuration](./configuration)
 - [AI Prompt Governance](./prompt-governance)
-- [Offline Evaluation for AI Gating](./offline-gating-eval)
+- [Historical Evaluation for AI Gating](./offline-gating-eval)

@@ -7,7 +7,7 @@ Source of truth for `docs.tradejs.dev`. Core framework code stays in the main mo
 ## Install
 
 ```bash
-npm install
+yarn
 ```
 
 ## Run
@@ -15,7 +15,7 @@ npm install
 Build and serve both locales:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Site runs on `http://localhost:3001`.
@@ -25,14 +25,14 @@ Site runs on `http://localhost:3001`.
 Docusaurus dev server supports one locale per process.
 
 ```bash
-npm run dev:hot:en
-npm run dev:hot:ru
+yarn dev:hot:en
+yarn dev:hot:ru
 ```
 
 ## Build
 
 ```bash
-npm run build
+yarn build
 ```
 
 ## Container Image
