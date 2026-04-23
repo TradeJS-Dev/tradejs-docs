@@ -20,6 +20,7 @@ Marketing site: https://tradejs.dev
 - Strategies: https://docs.tradejs.dev/strategies/authoring/write-strategies
 - Indicators: https://docs.tradejs.dev/indicators/authoring
 - Runtime execution: https://docs.tradejs.dev/runtime/execution/signals
+- Runtime parity: https://docs.tradejs.dev/runtime/backtesting/runtime-parity
 - Backtesting: https://docs.tradejs.dev/runtime/backtesting/overview
 - AI: https://docs.tradejs.dev/ai-ml/ai/configuration
 - AI filter validation on backtest data: https://docs.tradejs.dev/ai-ml/ai/prompt-replay

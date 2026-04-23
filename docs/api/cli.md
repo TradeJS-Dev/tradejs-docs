@@ -16,6 +16,7 @@ npx @tradejs/cli infra-down
 npx @tradejs/cli backtest
 npx @tradejs/cli signals
 npx @tradejs/cli signals-summary
+npx @tradejs/cli runtime-parity
 npx @tradejs/cli bot
 npx @tradejs/cli results
 ```
@@ -80,6 +81,22 @@ npx @tradejs/cli ai-train -n 50 --minQuality 4
 - `-H, --hours` size of the digest window in hours (`24` by default)
 - `-P, --printOnly` print the digest instead of sending it to Telegram
 
+## Runtime Parity Flags
+
+`npx @tradejs/cli runtime-parity --help`:
+
+- `-u, --user` select the Redis user config and runtime journal
+- `-o, --connector` connector provider/name for parity replay
+- `-d, --days` recent replay window in days
+- `--startTime` and `--endTime` explicit replay window timestamps
+- `-s, --strategy` compare one strategy only
+- `-t, --tickers` replay comma-separated symbols for configured strategies
+- `-C, --cacheOnly` do not refresh market history before replay
+- `--toleranceBars` allowed entry timestamp drift in bars
+- `--runtimeGates` replay with configured runtime AI/ML gates enabled
+- `-D, --details` print unmatched entry details
+- `-N, --notify` send the parity summary to Telegram
+
 ## Doctor Flags
 
 `npx @tradejs/cli doctor --help`:
@@ -91,4 +108,5 @@ npx @tradejs/cli ai-train -n 50 --minQuality 4
 
 - [Grid config for backtests](../runtime/backtesting/grid-config) - how to define Redis grid configs for mass parameter search
 - [Results and runtime promotion](../runtime/backtesting/results-runtime-config) - promoting backtest configs with `@tradejs/cli results`, `isConfigFromBacktest`
+- [Runtime Parity](../runtime/backtesting/runtime-parity) - comparing runtime entry records with deterministic backtest replay
 - [Data Sync](../getting-started/data-sync) - data refresh via `continuity` and `backtest --updateOnly`

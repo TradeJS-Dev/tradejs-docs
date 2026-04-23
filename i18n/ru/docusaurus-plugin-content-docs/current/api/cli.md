@@ -18,6 +18,7 @@ npx @tradejs/cli infra-down
 npx @tradejs/cli backtest
 npx @tradejs/cli signals
 npx @tradejs/cli signals-summary
+npx @tradejs/cli runtime-parity
 npx @tradejs/cli bot
 npx @tradejs/cli results
 ```
@@ -82,6 +83,22 @@ npx @tradejs/cli ai-train -n 50 --minQuality 4
 - `-H, --hours` — размер окна сводки в часах (по умолчанию `24`)
 - `-P, --printOnly` — печатать сводку в stdout вместо отправки в Telegram
 
+## Часто используемые флаги `runtime-parity`
+
+`npx @tradejs/cli runtime-parity --help`:
+
+- `-u, --user` — выбрать Redis user config и runtime journal
+- `-o, --connector` — connector provider/name для parity replay
+- `-d, --days` — недавнее окно replay в днях
+- `--startTime` и `--endTime` — явные timestamp границы replay
+- `-s, --strategy` — сравнить только одну стратегию
+- `-t, --tickers` — replay comma-separated symbols для configured strategies
+- `-C, --cacheOnly` — не обновлять market history перед replay
+- `--toleranceBars` — допустимый timestamp drift entry в барах
+- `--runtimeGates` — replay со включенными runtime AI/ML gates
+- `-D, --details` — печатать детали unmatched entries
+- `-N, --notify` — отправить parity summary в Telegram
+
 ## Флаги `doctor`
 
 `npx @tradejs/cli doctor --help`:
@@ -93,4 +110,5 @@ npx @tradejs/cli ai-train -n 50 --minQuality 4
 
 - [Grid-конфиги бэктестов](../runtime/backtesting/grid-config) — как задавать Redis grid-конфиги для массового перебора параметров
 - [Results и promotion в runtime](../runtime/backtesting/results-runtime-config) — promotion конфигов из бэктестов, `@tradejs/cli results`, `isConfigFromBacktest`
+- [Runtime parity](../runtime/backtesting/runtime-parity) — сравнение runtime entry records с детерминированным backtest replay
 - [Data Sync](../getting-started/data-sync) — обновление данных через `continuity` и `backtest --updateOnly`

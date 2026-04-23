@@ -78,11 +78,43 @@ Digest content:
 - trade status split (`active` / `closed`)
 - current PnL for active trades
 - closed PnL for closed trades
+- per-strategy runtime evaluation counts and skip reasons when evaluation records exist
 
 TradeJS links runtime signals and trades with a generated `orderId`.
 On Bybit, the same runtime id is passed through as `orderLinkId`, which lets the digest reconcile runtime trade records with exchange closed-PnL data.
 
-## 5. Common Troubleshooting
+## 5. Runtime Parity Reports
+
+`runtime-parity` can also send a Telegram-friendly report:
+
+```bash
+npx @tradejs/cli runtime-parity --user root --connector bybit --days 3 --notify
+```
+
+The report includes:
+
+- replay window, connector, replay env, runtime-gates status, and matching tolerance
+- replay target counts, compared targets, replay errors, and target sources
+- runtime/backtest/matched/runtime-only/backtest-only entry counts
+- average/max price delta and timestamp drift for matched entries
+- per-strategy parity rows
+- backtest-only classifications and AI/ML gate warnings when relevant
+
+For full parity semantics, see [Runtime Parity](../backtesting/runtime-parity).
+
+## 6. Report Formatting and Delivery
+
+Summary and parity reports are sent through the shared Telegram report helper:
+
+- reports use Telegram HTML formatting for bold sections and code-like diagnostics
+- long reports are split into multiple messages before hitting Telegram message limits
+- split messages are prefixed with `Part N/M`
+- inline markup, when provided, is attached only to the last part
+
+Signal notifications are still sent one signal at a time so the main signal
+message stays grouped with its optional AI follow-up.
+
+## 7. Common Troubleshooting
 
 - No messages at all:
   check the saved account settings for that user and whether bot is added to chat/channel.
@@ -92,3 +124,5 @@ On Bybit, the same runtime id is passed through as `orderLinkId`, which lets the
   check that `analysis:<symbol>:<signalId>` exists in Redis.
 - Daily digest misses trade PnL:
   check that runtime orders were opened through TradeJS and that the selected connector supports the closed/open trade data used by the digest.
+- Long report is split into several messages:
+  this is expected; Telegram has message size limits and TradeJS preserves line boundaries when possible.

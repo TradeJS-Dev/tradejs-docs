@@ -85,7 +85,10 @@ npx @tradejs/cli signals --notify
 
 Если есть AI-анализ, он уходит отдельным сообщением.
 Для суточной Telegram-сводки используйте `npx @tradejs/cli signals-summary`.
+Тот же механизм Telegram reports используется командой `runtime-parity --notify`
+для runtime/backtest parity summaries.
 
 Подробная инструкция:
 
 - [Telegram Notifications](./telegram-notifications)
+- [Runtime parity](../backtesting/runtime-parity)

@@ -85,7 +85,10 @@ npx @tradejs/cli signals --notify
 
 When AI analysis is present, Telegram receives a follow-up analysis message.
 TradeJS also provides `npx @tradejs/cli signals-summary` for a daily Telegram digest over recent runtime signal and trade activity.
+The same Telegram report delivery helper is used by `runtime-parity --notify`
+for runtime/backtest parity summaries.
 
 See full setup:
 
 - [Telegram Notifications](./telegram-notifications)
+- [Runtime Parity](../backtesting/runtime-parity)

@@ -55,6 +55,7 @@ The documentation covers:
 - Runtime signals: https://docs.tradejs.dev/runtime/execution/signals
 - Telegram notifications: https://docs.tradejs.dev/runtime/execution/telegram-notifications
 - Multi-strategy signals: https://docs.tradejs.dev/runtime/execution/multi-strategy-signals
+- Runtime parity: https://docs.tradejs.dev/runtime/backtesting/runtime-parity
 
 ### Backtesting
 

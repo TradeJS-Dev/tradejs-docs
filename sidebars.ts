@@ -88,6 +88,7 @@ const sidebars: SidebarsConfig = {
             'runtime/backtesting/overview',
             'runtime/backtesting/grid-config',
             'runtime/backtesting/results-runtime-config',
+            'runtime/backtesting/runtime-parity',
           ],
         },
         {
