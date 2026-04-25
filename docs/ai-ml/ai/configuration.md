@@ -41,6 +41,30 @@ Notes:
 
 If you want to validate AI filter changes before touching live execution, see [AI Filter Validation on Backtest Data](./prompt-replay). That workflow uses backtest-exported AI rows to replay the current prompt logic on the same historical sample.
 
+## `AI_MODE`
+
+Use `AI_MODE` to choose which AI decision path controls live order approval when `AI_ENABLED=true`.
+
+- `AI_MODE=llm` — runtime sends the payload to the configured AI provider and uses the model result for the quality gate.
+- `AI_MODE=gate` — runtime uses the local deterministic strategy gate for approval, while still persisting AI analysis records for later inspection and comparison.
+
+`MIN_AI_QUALITY` is the shared threshold in both modes.
+
+Operationally:
+
+- `AI_MODE=gate` is the closest match to `ai-train --localOnly`, because both use the same local deterministic approval logic.
+- `AI_MODE=llm` should be validated with normal `ai-train` runs or live/runtime records, because provider output can differ from the local gate.
+
+Example:
+
+```json
+{
+  "AI_ENABLED": true,
+  "AI_MODE": "gate",
+  "MIN_AI_QUALITY": 4
+}
+```
+
 ## Real TrendLine Adapter Example
 
 TrendLine extends shared payload with untrimmed trendline geometry:

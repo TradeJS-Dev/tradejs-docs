@@ -39,6 +39,30 @@ TradeJS ищет AI credentials в таком порядке:
 
 Если нужно проверить изменения AI-фильтра до выхода в рабочий режим, см. [Проверка AI-фильтра на данных бэктестов](./prompt-replay). Этот сценарий использует AI-датасет, выгруженный из бэктеста, чтобы прогнать текущую логику промптов на том же историческом наборе сделок.
 
+## `AI_MODE`
+
+Используйте `AI_MODE`, чтобы выбрать, какой AI decision path управляет live-апрувом ордера при `AI_ENABLED=true`.
+
+- `AI_MODE=llm` — runtime отправляет payload в настроенный AI provider и использует ответ модели для quality gate.
+- `AI_MODE=gate` — runtime использует локальный deterministic strategy gate для апрува, при этом AI analysis records все равно сохраняются для последующего разбора и сравнения.
+
+`MIN_AI_QUALITY` остается общим порогом в обоих режимах.
+
+Практически это означает:
+
+- `AI_MODE=gate` ближе всего к `ai-train --localOnly`, потому что оба режима используют одну и ту же локальную deterministic approval logic.
+- `AI_MODE=llm` нужно валидировать обычным `ai-train` или live/runtime records, потому что ответ провайдера может отличаться от локального gate.
+
+Пример:
+
+```json
+{
+  "AI_ENABLED": true,
+  "AI_MODE": "gate",
+  "MIN_AI_QUALITY": 4
+}
+```
+
 ## Пример TrendLine adapter
 
 TrendLine расширяет общий payload полем `trendline` без trim:
